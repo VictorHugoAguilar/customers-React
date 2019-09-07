@@ -6,7 +6,7 @@ const CustomerListItem = props => {
     const { name, editAction, delAction, urlPath, dni } = props;
     return (
         <div>
-            <div className="customer-list-item">
+            <div className="customers-list-item">
                 <div className="field">
                     <Link to={`${urlPath}${dni}`}>{name}</Link>
                 </div>
@@ -22,6 +22,7 @@ const CustomerListItem = props => {
 };
 
 CustomerListItem.propTypes = {
+    dni: PropTypes.string,
     name: PropTypes.string.isRequired,
     editAction: PropTypes.string.isRequired,
     delAction: PropTypes.string.isRequired,

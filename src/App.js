@@ -1,14 +1,26 @@
 import React from "react";
-import { Link, BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 
+// importamos componentes
+import HomeContainer from "./containers/HomeContainer";
+import CustomersContainer from "./containers/CustomersContainer";
+/* 
+            switch para evitar conflictos de rutas 
+            cuando encuentra la coincidencia entra si no continua
+            para ello tambien tenemos que poner la ruta mas especifica 
+            primero asi la validacion no falla
+            
+            <Switch>
+            <Route extact path="/customers/new" component={} />
+            <Route extact path="/customers/:dni" component={} />
+            </Switch>
+            */
 function App() {
     return (
         <Router>
-            <div className="App">
-                <Link to="/customers">Customers</Link>
-                
-            </div>
+            <Route extact path="/" component={HomeContainer} />
+            <Route extact path="/customers" component={CustomersContainer} />
         </Router>
     );
 }

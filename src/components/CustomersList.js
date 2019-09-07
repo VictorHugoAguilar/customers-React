@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import CustomerListItem from "./CustomerListItem";
+import CustomerListItem from "./CustomersListItem";
 
 const CustomerList = props => {
     const { customers, urlPath } = props;
@@ -10,6 +10,7 @@ const CustomerList = props => {
                 {customers.map(c => (
                     <CustomerListItem
                         key={c.dni}
+                        dni={c.dni}
                         name={c.name}
                         editAction={"Editar"}
                         delAction={"Eliminar"}
