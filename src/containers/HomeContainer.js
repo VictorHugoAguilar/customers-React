@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+/* 
+    withRoute es un HOC (high orden component) que agrega las propiedades 
+    match, location, history, y re-renderiza al componente cuando estas 
+    propiedades se modifican.
+*/
 import { withRouter } from "react-router-dom";
 // importamos componentes
 import AppFrame from "./../components/AppFrame";
