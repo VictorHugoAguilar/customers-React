@@ -1,0 +1,46 @@
+{
+  "customers": [
+    {
+      "dni": "50592848R",
+      "name": "Victor Hugo",
+      "age": 34
+    },
+    {
+      "dni": "30592848R",
+      "name": "Jose Manuel",
+      "age": 24
+    },
+    {
+      "dni": "30392848R",
+      "name": "Ignatios Rod",
+      "age": 44
+    },
+    {
+      "dni": "30392843R",
+      "name": "Coquis",
+      "age": 5
+    },
+    {
+      "dni": "30392844R",
+      "name": "Paula",
+      "age": 15
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
