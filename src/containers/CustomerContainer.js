@@ -9,16 +9,20 @@ class CustomerContainer extends Component {
             <div>
                 <AppFrame
                     header={`Cliente ${this.props.dni}`}
-                    body={<p>Datos del cliente</p>}
+                    body={<p>Datos del cliente {this.props.customer.name}</p>}
                 ></AppFrame>
             </div>
         );
     }
 }
 
+const mapStateToProps = (state, props) => ({
+    customer: state.customers.find(c => c.dni === props.dni)
+});
+
 CustomerContainer.propTypes = { dni: PropTypes.string.isRequired };
 
 export default connect(
-    null,
+    mapStateToProps,
     null
 )(CustomerContainer);
