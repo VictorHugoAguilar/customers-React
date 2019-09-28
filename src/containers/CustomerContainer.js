@@ -32,7 +32,7 @@ class CustomerContainer extends Component {
             path="/customers/:dni/edit"
             children={({ match }) =>
                 match ? (
-                    <CustomerEdit {...this.props.customer} />
+                    <CustomerEdit initialValues={this.props.customer} />
                 ) : (
                     <CustomerData
                         name={this.props.customer.name}
