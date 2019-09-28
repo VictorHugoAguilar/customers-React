@@ -49,7 +49,7 @@ class CustomersContainer extends Component {
 
 CustomersContainer.protoType = {
     fetchCustomers: PropTypes.func.isRequired,
-    customers: PropTypes.array.isRequired
+    customers: PropTypes.array.isRequired,
 };
 
 CustomersContainer.defaultProps = {
