@@ -35,9 +35,9 @@ class CustomerContainer extends Component {
                     <CustomerEdit {...this.props.customer} />
                 ) : (
                     <CustomerData
-                        age={this.props.customer.age}
-                        dni={this.props.customer.dni}
                         name={this.props.customer.name}
+                        dni={this.props.customer.dni}
+                        age={this.props.customer.age}
                     />
                 )
             }
