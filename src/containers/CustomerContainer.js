@@ -8,8 +8,14 @@ import { Route, withRouter } from "react-router-dom";
 // importamos los componentes
 import CustomerEdit from "./../components/CustomerEdit";
 import CustomerData from "./../components/CustomerData";
+import { fetchCustomers } from "./../actions/fetchCustomers";
 
 class CustomerContainer extends Component {
+    componentDidMount() {
+        if (!this.props.customer) {
+            this.props.fetchCustomers();
+        }
+    }
     //<p>Datos del cliente {this.props.customer.name}</p>
 
     /* 
@@ -68,11 +74,15 @@ const mapStateToProps = (state, props) => ({
     customer: getCustomerByDni(state, props)
 });
 
-CustomerContainer.propTypes = { dni: PropTypes.string.isRequired };
+CustomerContainer.propTypes = {
+    dni: PropTypes.string.isRequired,
+    customer: PropTypes.object.isRequired,
+    fetchCustomers: PropTypes.func.isRequired
+};
 
 export default withRouter(
     connect(
         mapStateToProps,
-        null
+        { fetchCustomers }
     )(CustomerContainer)
 );
