@@ -16,6 +16,20 @@ const MyField = ({ input, meta, type, label, name }) => (
 
 const isNumber = value => isNaN(Number(value)) && "El campo debe ser un número";
 
+const validate = values => {
+    const error = {};
+    if (!values.name) {
+        error.name = "El campo nombre es requerido";
+    }
+    if (!values.dni) {
+        error.dni = "El campo dni es requerido";
+    }
+    if (!values.age){
+        error.age ="La edad es un campo obligatorio"
+    }
+    return error
+};
+
 const CustomerEdit = props => {
     // const { name, age, dni } = props;
     return (
@@ -54,6 +68,9 @@ CustomerEdit.propTypes = {
     age: PropTypes.number
 };
 
-const CustomerEditForm = reduxForm({ form: "CustomerEdit" })(CustomerEdit);
+const CustomerEditForm = reduxForm({
+    form: "CustomerEdit",
+    validate: validate
+})(CustomerEdit);
 
 export default setPropsAsInitial(CustomerEditForm);
