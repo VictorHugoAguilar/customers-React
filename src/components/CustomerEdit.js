@@ -11,14 +11,14 @@ const MyField = ({input, meta}) => (
     <div>
         <input {...input} type="text" />
         {
-            meta.error && <span>{meta.error}</span>
+            meta.touched && meta.error && <span>{meta.error}</span>
         }
         <span></span>
     </div>
 );
 
 const CustomerEdit = props => {
-    const { name, age, dni } = props;
+    // const { name, age, dni } = props;
     return (
         <div>
             <h2>Edición de cliente</h2>
@@ -34,7 +34,7 @@ const CustomerEdit = props => {
                 </div>
                 <div>
                     <label htmlFor="dni">Dni</label>
-                    <Field name="dni" component="input" type="text"></Field>
+                    <Field name="dni" component={MyField} validate={isRequired} type="text"></Field>
                 </div>
                 <div>
                     <label htmlFor="age">Edad</label>
