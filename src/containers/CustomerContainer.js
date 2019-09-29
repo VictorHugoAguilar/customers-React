@@ -27,12 +27,17 @@ class CustomerContainer extends Component {
                         name={this.props.customer.name}
                     />
     */
+
+    handleSubmit = (values) => {
+        console.log(JSON.stringify(values));
+    };
+
     renderBody = () => (
         <Route
             path="/customers/:dni/edit"
             children={({ match }) =>
                 match ? (
-                    <CustomerEdit {...this.props.customer} />
+                    <CustomerEdit {...this.props.customer} onSubmit={this.handleSubmit} />
                 ) : (
                     <CustomerData
                         name={this.props.customer.name}

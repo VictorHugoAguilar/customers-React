@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import { reduxForm, Field } from "redux-form";
 import { setPropsAsInitial } from "../helpers/setPropsAsInitial";
 
+// importamos componentes
+import CustomersActions from "./CustomersActions";
+
 const isRequired = value => !value && "Este campo es requerido";
 
 const MyField = ({ input, meta, type, label, name }) => (
@@ -24,18 +27,19 @@ const validate = values => {
     if (!values.dni) {
         error.dni = "El campo dni es requerido";
     }
-    if (!values.age){
-        error.age ="La edad es un campo obligatorio"
+    if (!values.age) {
+        error.age = "La edad es un campo obligatorio";
     }
-    return error
+    return error;
 };
 
 const CustomerEdit = props => {
     // const { name, age, dni } = props;
+    const { handleSubmit, submitting } = props;
     return (
         <div>
             <h2>Edición de cliente</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <Field
                     name="name"
                     component={MyField}
@@ -57,6 +61,9 @@ const CustomerEdit = props => {
                     type="number"
                     label="Edad "
                 ></Field>
+                <CustomersActions>
+                    <button type="submit" disabled={submitting}>Aceptar</button>
+                </CustomersActions>
             </form>
         </div>
     );
