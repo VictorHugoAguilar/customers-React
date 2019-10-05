@@ -1,7 +1,7 @@
 {
   "customers": [
     {
-      "id": "50592848R" ,
+      "id": "50592848R",
       "dni": "50592848R",
       "name": "Victor Hugo",
       "age": 34
@@ -9,7 +9,7 @@
     {
       "id": "30592848R",
       "dni": "30592848R",
-      "name": "Jose Manuel",
+      "name": "Alberto Manel",
       "age": 24
     },
     {
@@ -21,7 +21,7 @@
     {
       "id": "30392843R",
       "dni": "30392843R",
-      "name": "Coquis",
+      "name": "Coquis Agular",
       "age": 5
     },
     {

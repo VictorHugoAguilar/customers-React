@@ -9,6 +9,8 @@ import { Route, withRouter } from "react-router-dom";
 import CustomerEdit from "./../components/CustomerEdit";
 import CustomerData from "./../components/CustomerData";
 import { fetchCustomers } from "./../actions/fetchCustomers";
+import {updateCustomer } from "./../actions/updateCustomer";
+
 
 class CustomerContainer extends Component {
     componentDidMount() {
@@ -35,7 +37,9 @@ class CustomerContainer extends Component {
     */
 
     handleSubmit = values => {
-        console.log(JSON.stringify(values));
+        // console.log(JSON.stringify(values));
+        const { id } = values;
+        this.props.updateCustomer(id, values);
     };
 
     handleOnBack = () => {
@@ -52,7 +56,7 @@ class CustomerContainer extends Component {
                         {...this.props.customer}
                         onSubmit={this.handleSubmit}
                         onBack={this.handleOnBack}
-                    />
+                    /> 
                 );
             }}
         />
@@ -76,13 +80,14 @@ const mapStateToProps = (state, props) => ({
 
 CustomerContainer.propTypes = {
     dni: PropTypes.string.isRequired,
-    customer: PropTypes.object.isRequired,
-    fetchCustomers: PropTypes.func.isRequired
+    customer: PropTypes.object,
+    fetchCustomers: PropTypes.func.isRequired,
+    updateCustomer: PropTypes.func.isRequired,
 };
 
 export default withRouter(
     connect(
         mapStateToProps,
-        { fetchCustomers }
+        { fetchCustomers, updateCustomer }
     )(CustomerContainer)
 );
